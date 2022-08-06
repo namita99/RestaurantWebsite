@@ -1,0 +1,130 @@
+﻿@model IEnumerable<AspAssignment.Models.Menu>
+
+@{
+    ViewData["Title"] = "List of Menus";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"rel="stylesheet"/>
+</head>
+
+<body>
+       <style>
+          body{  
+  font-family: Calibri, Helvetica, sans-serif;  
+  background-color: pink;  
+}  
+
+</style>
+	
+	<nav class="navbar navbar-expand navbar-dark bg-success">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="./">Desert Moon</a>
+		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			
+		<!-- NAVBAR LINKS -->
+		<li class="nav-item">
+<a class="nav-link text-dark" asp-area="" asp-page="/Index1">Home</a>		
+</li>
+		<li class="nav-item">
+			<a class="nav-link active" href="#">About Us</a>
+		</li>
+		<li class="nav-item">
+	<a class="nav-link text-dark" asp-area="" asp-page="/Index3">Reservation</a>	
+		</li>
+		<li class="nav-item">
+			<a class="nav-link text-dark" asp-area="" asp-page="/Index2">Contact</a>	
+		</li>
+			
+		
+			
+			<!-- DROPDOWN OPTIONS -->
+			 <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Menu</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" 
+                                   asp-area="RestaurantSite" asp-controller="Categories" asp-action="Index">Categories</a>
+                                <a class="dropdown-item"
+                                   asp-area="RestaurantSite" asp-controller="Menus" asp-action="Index">Menus</a>
+
+                                    <a class="dropdown-item" 
+                                   asp-area="RestaurantSite" asp-controller="Customers" asp-action="Index">Customers</a>
+                                 <a class="dropdown-item" 
+                                   asp-area="RestaurantSite" asp-controller="Orders" asp-action="Index">Orders</a>
+                                 <a class="dropdown-item" 
+                                   asp-area="RestaurantSite" asp-controller="Payments" asp-action="Index">Payments</a>
+                                
+                            </div>
+                        </li>
+                        </ul>
+		<!-- SEARCH BOX -->
+		<form class="d-flex">
+		<input
+			class="form-control me-2"
+			type="search"
+			placeholder="Search site"
+		/>
+		<button class="btn btn-primary"
+				type="submit">
+			Search
+		</button>
+		</form>
+	</div>
+	</nav>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+      <h1>@ViewData["Title"]</h1>  
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+    &nbsp; | &nbsp;
+    <a asp-area="RestaurantSite" asp-controller="Categories" asp-action="Index"> View Categories</a>
+</p>
+<hr/>
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.DishName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.DishName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DishId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DishId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DishId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

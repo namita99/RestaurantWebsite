@@ -1,0 +1,261 @@
+﻿@page
+@model AspDotNetPracticeAss.Pages.Index2Model
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<html>
+   <head>
+      <script> 
+         /*Put the JavaScript code here*/
+         function validateForm()                                    
+{ 
+    var name = document.forms["myForm"]["name"];               
+    var email = document.forms["myForm"]["email"];    
+    var message = document.forms["myForm"]["message"];   
+   
+    if (name.value == "")                                  
+    { 
+        document.getElementById('errorname').innerHTML="Please enter a valid name";  
+        name.focus(); 
+        return false; 
+    }else{
+        document.getElementById('errorname').innerHTML="";  
+    }
+       
+    if (email.value == "")                                   
+    { 
+        document.getElementById('erroremail').innerHTML="Please enter a valid email address"; 
+        email.focus(); 
+        return false; 
+    }else{
+        document.getElementById('erroremail').innerHTML="";  
+    }
+   
+    
+   
+    if (email.value.indexOf(".", 0) < 0)                 
+    { 
+        document.getElementById('erroremail').innerHTML="Please enter a valid email address"; 
+        email.focus(); 
+        return false; 
+    } 
+   
+    if (message.value == "")                           
+    {
+        document.getElementById('errormsg').innerHTML="Please enter a valid message"; 
+        message.focus(); 
+        return false; 
+    }else{
+        document.getElementById('errormsg').innerHTML="";  
+    }
+   
+    return true; 
+}
+      </script> 
+      <style>
+         /*Put the CSS code here*/
+
+         body{  
+  font-family: Calibri, Helvetica, sans-serif;  
+  background-color: hotpink;  
+}  
+.row-flex {
+	display: flex;
+	flex-direction: row;
+}
+
+.flex-column-form {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	margin: 30px 20px;
+}
+.btn.btn-primary {
+	font-family: 'Big Shoulders Text', cursive;
+	color: #ffffff;
+	background-color: #95999e;
+	text-transform: uppercase;
+	font-size: 16px;
+	padding: 5px 10px;
+	letter-spacing: 2px;
+	border: 0;
+}
+
+.btn.btn-primary:hover {
+	background-color: #747474;
+}
+.opening-time,
+.contact-address {
+	flex: 1;
+	margin: 30px 20px;
+	font-size: 1.2em;
+}
+
+.form-group p {
+	font-size: 1.2em;
+}
+
+.opening-time p span,
+.contact-address p span {
+	display: block;
+}
+      </style>
+      
+	<nav class="navbar navbar-expand navbar-dark bg-success">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="./">Desert Moon</a>
+		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			
+		<!-- NAVBAR LINKS -->
+		<li class="nav-item">
+<a class="nav-link text-dark" asp-area="" asp-page="/Index1">Home</a>		
+</li>
+		<li class="nav-item">
+			<a class="nav-link active" href="#">About Us</a>
+		</li>
+		<li class="nav-item">
+		<a class="nav-link text-dark" asp-area="" asp-page="/Index3">Reservation</a>	
+		</li>
+		<li class="nav-item">
+			<a class="nav-link text-dark" asp-area="" asp-page="/Index2">Contact</a>	
+		</li>
+			
+		
+			
+			<!-- DROPDOWN OPTIONS -->
+			 <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Menu</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" 
+                                   asp-area="RestaurantSite" asp-controller="Categories" asp-action="Index">Categories</a>
+                                <a class="dropdown-item"
+                                   asp-area="RestaurantSite" asp-controller="Menus" asp-action="Index">Menus</a>
+
+                                    <a class="dropdown-item" 
+                                   asp-area="RestaurantSite" asp-controller="Customers" asp-action="Index">Customers</a>
+                                 <a class="dropdown-item" 
+                                   asp-area="RestaurantSite" asp-controller="Orders" asp-action="Index">Orders</a>
+                                 <a class="dropdown-item" 
+                                   asp-area="RestaurantSite" asp-controller="Payments" asp-action="Index">Payments</a>
+                                
+                            </div>
+                        </li>
+                        </ul>
+		<!-- SEARCH BOX -->
+		<form class="d-flex">
+		<input
+			class="form-control me-2"
+			type="search"
+			placeholder="Search site"
+		/>
+		<button class="btn btn-primary"
+				type="submit">
+			Search
+		</button>
+		</form>
+	</div>
+	</nav>
+   </head>
+ 
+   <body>
+      <h1>Contact form</h1>
+      <form name="myForm" action="/file.php" onsubmit="return validateForm()" method="post">
+         <table class="form-style">
+            <tr>
+               <td>
+                  <label>
+                     Your name <span class="required">*</span>
+                  </label>
+               </td>
+               <td>
+                  <input type="text" name="name" class="long"/>
+                  <span class="error" id="errorname"></span>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <label>
+                    Your email address <span class="required">*</span>
+                  </label>
+               </td>
+               <td>
+                  <input type="email" name="email" class="long"/>
+                  <span class="error" id="erroremail"></span>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <label>
+                     Message <span class="required">*</span>
+                  </label>
+               </td>
+               <td>
+                  <textarea name="message" class="long field-textarea"></textarea>
+                  <span class="error" id="errormsg"></span>
+               </td>
+            </tr>
+            <tr>
+               <td></td>
+               <td>
+                  <input type="submit" value="Send">      
+                  <input type="reset" value="Reset"> 
+               </td>
+            </tr>
+         </table>
+      </form>
+      <br/> <br/> <br/> <br/> <br/> <br/>
+      <hr/>
+	<div class="container">
+		<div class="row-flex">
+			<div class="flex-column-form">
+				<h3>
+					Make a booking
+				</h3>
+				<form class="media-centered">
+					<div class="form-group">
+						
+<p>
+							Please leave your number we will
+							call to make a reservation
+						</p>
+
+						
+						
+					</div>
+					<div class="form-group">
+						
+					</div>
+					
+				</form>
+			</div>
+	
+			<div class="opening-time">
+				<h3>
+					Opening times
+				</h3>
+				
+<p>
+					<span>Monday—Thursday: 08:00 — 22:00</span>
+					<span>Friday—Saturday: 09:00 — 23:00 </span>
+					<span>Sunday: 10:00 — 17:00</span>
+				</p>
+
+			</div>
+			<div class="contact-address">
+				<h3>
+					Contact
+				</h3>
+				
+<p>
+					<span>Shop No.17, </span>
+					<span>Rojaria Villa</span>
+					<span>Hathibaug, Byculla, Mumbai</span>
+				</p>
+
+			</div>
+		</div>
+	</div>
+
+   </body>
+</html>
