@@ -10,16 +10,21 @@ namespace AspAssignment.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Payement ID")]
         public int PaymentId { get; set; }
 
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "{0} cannot be Empty!")]
+        [MinLength(3, ErrorMessage = "{0} should have at least {1} characters")]
+        [MaxLength(100, ErrorMessage = "{0} should have maximum {1} characters")]
+        [Display(Name = "Payment Type")]
         public string PaymentType { get; set; }
 
 
 
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "{0} cannot be Empty!")]
+        [MinLength(3, ErrorMessage = "{0} should have at least {1} characters")]
+        [MaxLength(100, ErrorMessage = "{0} should have maximum {1} characters")]
+        [Display(Name = "Payment Status")]
         public string PaymentStatus { get; set; }
 
         #region Navigation Properties to the Category Model

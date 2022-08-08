@@ -1,5 +1,7 @@
-﻿@model AspAssignment.Models.Menu
+﻿@model AspAssignment.Models.Menu 
 
+@*@model AspAssignment.Areas.RestaurantSite.ViewModels.MenuViewModel;
+*@
 @{
     ViewData["Title"] = "Delete Menu";
 }
@@ -94,6 +96,12 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Description)
+        </dd>
+          <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ImageUrl)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Price)

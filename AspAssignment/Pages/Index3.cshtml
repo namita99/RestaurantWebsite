@@ -15,11 +15,10 @@
     var email = document.forms["myForm"]["email"];  
      var phone = document.forms["myForm"]["phone"]; 
      var people = document.forms["myForm"]["people"];
-     var time = document.forms["myForm"]["time"]; 
+     var Date = document.forms["myForm"]["date"]; 
     var message = document.forms["myForm"]["message"]; 
-             var regexp = /^(2[0-3]|[01]?[0-9]):([0-5]?[0-9]):([0-5]?[0-9])$/;
    
-    if (name.value == "")                                  
+    if (name.value == "" || name.value.length < 5)                                  
     { 
         document.getElementById('errorname').innerHTML="Please enter a valid name";  
         name.focus(); 
@@ -71,15 +70,6 @@
         document.getElementById('errorpeople').innerHTML="";  
     }
 
-      if (time.value == "" || regexp.test(time) )                                   
-    { 
-        document.getElementById('errortime').innerHTML="Please enter a time"; 
-        email.focus(); 
-        return false; 
-    }else{
-        document.getElementById('errortime').innerHTML="";  
-    }
-   
     
    
     if (message.value == "")                           
@@ -99,7 +89,7 @@
 
          body{  
   font-family: Calibri, Helvetica, sans-serif;  
-  background-color: hotpink;  
+  background-color: pink;  
 }  
 .row-flex {
 	display: flex;
@@ -145,7 +135,7 @@
       
 	<nav class="navbar navbar-expand navbar-dark bg-success">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="./">Desert Moon</a>
+		<a class="navbar-brand" href="https://localhost:44343/RestaurantSite/Restaurant?">Desert Moon</a>
 		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 			
 		<!-- NAVBAR LINKS -->
@@ -153,7 +143,7 @@
 <a class="nav-link text-dark" asp-area="" asp-page="/Index1">Home</a>		
 </li>
 		<li class="nav-item">
-			<a class="nav-link active" href="#">About Us</a>
+			<a class="nav-link active" asp-area="" asp-page="/Index6">About Us</a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link active" href="#">Reservation</a>
@@ -201,7 +191,7 @@
  
    <body>
       <h1>Reservation Table</h1>
-     <form name="myForm" action="/file.php" onsubmit="return validateForm()" method="post">
+     <form name="myForm" asp-area="" asp-page="/Index5" onsubmit="return validateForm()" method="post">
          <table class="form-style">
             <tr>
                <td>
@@ -250,12 +240,12 @@
             <tr>
                <td>
                   <label>
-                    Time <span class="required">*</span>
+                    Date<span class="required">*</span>
                   </label>
                </td>
                <td>
-                  <input type="time" name="time" class="long"/>
-                  <span class="error" id="errortime"></span>
+                  <input type="date" name="date" class="long"/>
+                  <span class="error" id="errordate"></span>
                </td>
             </tr>
             <tr>

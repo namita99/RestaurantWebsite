@@ -9,18 +9,24 @@ namespace AspAssignment.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Category ID")]
         public int CategoryId { get; set; }
 
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "{0} cannot be Empty!")]
+        [Display(Name = "Category Name")]
+        [MinLength(4, ErrorMessage = "{0} should have at least {1} characters")]
+        [MaxLength(100, ErrorMessage = "{0} should have maximum {1} characters")]
         public string CategoryName { get; set; }
 
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "{0} cannot be Empty!")]
+        [Display(Name = "Description of the Category")]
+        [MinLength(4, ErrorMessage = "{0} should have at least {1} characters")]
+        [MaxLength(100, ErrorMessage = "{0} should have maximum {1} characters")]
         public string CategoryDescription { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "{0} cannot be Empty!")]
         [DefaultValue(1)]
+        [Display(Name = "Category Price")]
         public int Price { get; set; }
 
 

@@ -10,19 +10,28 @@ namespace AspAssignment.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Customer ID")]
+
         public int CustomerId { get; set; }
 
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "{0} cannot be Empty!")]
+        [Display(Name = "Customer Name")]
+        [MinLength(4, ErrorMessage = "{0} should have at least {1} characters")]
+        [MaxLength(100, ErrorMessage = "{0} should have maximum {1} characters")]
         public string CustomerName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "{0} cannot be Empty!")]
         [StringLength(100)]
+        [Display(Name = "Customer Address")]
+        [MinLength(4, ErrorMessage = "{0} should have at least {1} characters")]
+        [MaxLength(100, ErrorMessage = "{0} should have maximum {1} characters")]
         public string CustomerAddress { get; set; }
 
 
-        [Required]
+        [Required(ErrorMessage = "{0} cannot be Empty!")]
         [DefaultValue(1)]
+        [Display(Name = "Customer Number")]
+      
         public int CustomerNo { get; set; }
 
 

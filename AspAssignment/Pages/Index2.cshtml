@@ -14,7 +14,7 @@
     var email = document.forms["myForm"]["email"];    
     var message = document.forms["myForm"]["message"];   
    
-    if (name.value == "")                                  
+    if (name.value == "" || name.value.length < 5)                                  
     { 
         document.getElementById('errorname').innerHTML="Please enter a valid name";  
         name.focus(); 
@@ -58,7 +58,7 @@
 
          body{  
   font-family: Calibri, Helvetica, sans-serif;  
-  background-color: hotpink;  
+  background-color: pink;  
 }  
 .row-flex {
 	display: flex;
@@ -104,7 +104,7 @@
       
 	<nav class="navbar navbar-expand navbar-dark bg-success">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="./">Desert Moon</a>
+		<a class="navbar-brand" href="https://localhost:44343/RestaurantSite/Restaurant?">Desert Moon</a>
 		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 			
 		<!-- NAVBAR LINKS -->
@@ -112,7 +112,7 @@
 <a class="nav-link text-dark" asp-area="" asp-page="/Index1">Home</a>		
 </li>
 		<li class="nav-item">
-			<a class="nav-link active" href="#">About Us</a>
+			<a class="nav-link active" asp-area="" asp-page="/Index6">About Us</a>
 		</li>
 		<li class="nav-item">
 		<a class="nav-link text-dark" asp-area="" asp-page="/Index3">Reservation</a>	
@@ -160,7 +160,7 @@
  
    <body>
       <h1>Contact form</h1>
-      <form name="myForm" action="/file.php" onsubmit="return validateForm()" method="post">
+      <form name="myForm" asp-area="" asp-page="/Index4" onsubmit="return validateForm()" method="post">
          <table class="form-style">
             <tr>
                <td>

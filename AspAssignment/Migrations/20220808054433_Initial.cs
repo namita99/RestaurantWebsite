@@ -46,6 +46,7 @@ namespace AspAssignment.Migrations
                     DishName = table.Column<string>(maxLength: 100, nullable: false),
                     Description = table.Column<string>(maxLength: 100, nullable: false),
                     Price = table.Column<int>(nullable: false),
+                    ImageUrl = table.Column<string>(maxLength: 120, nullable: true),
                     Quantity = table.Column<short>(nullable: false)
                 },
                 constraints: table =>
@@ -81,6 +82,7 @@ namespace AspAssignment.Migrations
                     OrderId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OrderStatus = table.Column<string>(maxLength: 100, nullable: false),
+                    Quantity = table.Column<short>(nullable: false),
                     CategoryId = table.Column<int>(nullable: false),
                     DishId = table.Column<int>(nullable: false),
                     CustomerId = table.Column<int>(nullable: false)

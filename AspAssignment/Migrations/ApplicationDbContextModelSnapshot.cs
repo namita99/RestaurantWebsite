@@ -88,6 +88,10 @@ namespace AspAssignment.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(120)")
+                        .HasMaxLength(120);
+
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
@@ -119,6 +123,9 @@ namespace AspAssignment.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
+
+                    b.Property<short>("Quantity")
+                        .HasColumnType("smallint");
 
                     b.HasKey("OrderId");
 

@@ -9,12 +9,19 @@ namespace AspAssignment.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Order ID")]
         public int OrderId { get; set; }
 
 
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "{0} cannot be Empty!")]
+        [MinLength(4, ErrorMessage = "{0} should have at least {1} characters")]
+        [MaxLength(100, ErrorMessage = "{0} should have maximum {1} characters")]
+        [Display(Name = "Order Status")]
         public string OrderStatus { get; set; }
+
+        [Required]
+        [DefaultValue(1)]
+        public short Quantity { get; set; }
 
         #region Navigation Properties to the Category Model
 

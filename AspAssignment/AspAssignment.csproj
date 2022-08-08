@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\RestaurantSite\Models\" />
-    <Folder Include="Areas\RestaurantSite\ViewModels\" />
     <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 

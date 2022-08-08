@@ -9,6 +9,7 @@ using AspAssignment.Data;
 using AspAssignment.Models;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
+using AspAssignment.Areas.RestaurantSite.ViewModels;
 
 namespace AspAssignment.Areas.RestaurantSite.Controllers
 {
@@ -28,11 +29,12 @@ namespace AspAssignment.Areas.RestaurantSite.Controllers
         public async Task<IActionResult> Index()
         {
             _logger.LogInformation("Retrived All the Menus from the database");
-            return View(await _context.Menus.ToListAsync());
+            var viewmodels = await _context.Menus
+                                            .ToListAsync();
+            return View(viewmodels);
         }
-
-        // GET: RestaurantSite/Menus/Details/5
-        public async Task<IActionResult> Details(int? id)
+            // GET: RestaurantSite/Menus/Details/5
+            public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -46,7 +48,18 @@ namespace AspAssignment.Areas.RestaurantSite.Controllers
                 return NotFound();
             }
 
-            return View(menu);
+            MenuViewModel viewModel = new MenuViewModel()
+            {
+                DishId = menu.DishId,
+                DishName = menu.DishName,
+                Description = menu.Description,
+                ImageUrl = menu.ImageUrl,
+                Price = menu.Price,
+                Quantity = menu.Quantity
+                
+            };
+            return View(viewModel);
+
         }
 
         // GET: RestaurantSite/Menus/Create
@@ -60,7 +73,7 @@ namespace AspAssignment.Areas.RestaurantSite.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DishId,DishName,Description,Price,Quantity")] Menu menu)
+        public async Task<IActionResult> Create([Bind("DishId,DishName,Description,Price,Quantity,ImageUrl")] Menu menu)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +97,17 @@ namespace AspAssignment.Areas.RestaurantSite.Controllers
             {
                 return NotFound();
             }
-            return View(menu);
+           var MenuViewModel = new MenuViewModel()
+            {
+                DishId = menu.DishId,
+                DishName = menu.DishName,
+                Description = menu.Description,
+                ImageUrl = menu.ImageUrl,
+                Price = menu.Price,
+                Quantity = menu.Quantity
+
+            };
+            return View(MenuViewModel);
         }
 
         // POST: RestaurantSite/Menus/Edit/5
@@ -151,7 +174,17 @@ namespace AspAssignment.Areas.RestaurantSite.Controllers
                 return NotFound();
             }
 
-            return View(menu);
+            var MenuViewModel = new MenuViewModel()
+            {
+                DishId = menu.DishId,
+                DishName = menu.DishName,
+                Description = menu.Description,
+                ImageUrl = menu.ImageUrl,
+                Price = menu.Price,
+                Quantity = menu.Quantity
+
+            };
+            return View(MenuViewModel);
         }
 
         // POST: RestaurantSite/Menus/Delete/5
