@@ -4,10 +4,7 @@
 }
 
 
-<div class="text-center">
-    
-    
-</div>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,7 +86,8 @@
 	
 	<nav class="navbar navbar-expand navbar-dark bg-success">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="https://localhost:44343/RestaurantSite/Restaurant?">Desert Moon</a>
+		<a class="navbar-brand" asp-area="RestaurantSite" asp-controller="Restaurant">
+			<img src ="~/Images/logo.jpg" style="width:35px" />Desert Moon</a>
 		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 			
 		<!-- NAVBAR LINKS -->
@@ -97,7 +95,7 @@
 <a class="nav-link text-dark" asp-area="" asp-page="/Index1">Home</a>		
 </li>
 		<li class="nav-item">
-			<a class="nav-link active" asp-area="" asp-page="/Index6">About Us</a>
+			<a class="nav-link text-dark" asp-area="" asp-page="/Index6">About Us</a>
 		</li>
 		<li class="nav-item">
 	<a class="nav-link text-dark" asp-area="" asp-page="/Index3">Reservation</a>	
@@ -105,13 +103,24 @@
 		<li class="nav-item">
 			<a class="nav-link text-dark" asp-area="" asp-page="/Index2">Contact</a>	
 		</li>
+		<li class="nav-item">
+			<a class="nav-link text-dark" asp-area="" asp-page="/Index7">View Menus</a>	
+		</li>
+		<li class="nav-item">
+			<a class="nav-link text-dark" 
+                                asp-area="ManageTable" asp-controller="Home" asp-action="Index">View Orders</a>
+		</li>
 			
 		
 			
 			<!-- DROPDOWN OPTIONS -->
 			 <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Manage</a>
-                            <div class="dropdown-menu">
+ <li class="nav-item dropdown">
+ <button type="button" class="btn btn-primary">Manage</button>
+  <button type="button" class="btn btn-prim dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only">Toggle Dropdown</span>
+	</button>    
+	<div class="dropdown-menu">
                                 <a class="dropdown-item" 
                                    asp-area="RestaurantSite" asp-controller="Categories" asp-action="Index">Categories</a>
                                 <a class="dropdown-item"

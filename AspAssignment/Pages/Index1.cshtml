@@ -7,10 +7,7 @@
 
 
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    
-</div>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,6 +71,19 @@ a.link-to-book:hover {
 .btn.btn-primary:hover {
 	background-color: #747474;
 }
+.card{
+		background-color: black;
+
+}
+.card-title{
+	font-family: 'Big Shoulders Text', cursive;
+	color: magenta;
+	text-transform: uppercase;
+	font-size: 16px;
+	padding: 5px 10px;
+	letter-spacing: 2px;
+	border: 0;
+}
 .opening-time,
 .contact-address {
 	flex: 1;
@@ -93,7 +103,10 @@ a.link-to-book:hover {
 	
 	<nav class="navbar navbar-expand navbar-dark bg-success">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="https://localhost:44343/RestaurantSite/Restaurant?">Desert Moon</a>
+		<a class="navbar-brand" asp-area="RestaurantSite" asp-controller="Restaurant">
+						<img src ="~/Images/logo.jpg" style="width:35px" />
+
+			Desert Moon</a>
 		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 			
 		<!-- NAVBAR LINKS -->
@@ -101,7 +114,7 @@ a.link-to-book:hover {
 <a class="nav-link text-dark" asp-area="" asp-page="/Index1">Home</a>		
 </li>
 		<li class="nav-item">
-			<a class="nav-link active" asp-area="" asp-page="/Index6">About Us</a>
+			<a class="nav-link text-dark" asp-area="" asp-page="/Index6">About Us</a>
 		</li>
 		<li class="nav-item">
 	<a class="nav-link text-dark" asp-area="" asp-page="/Index3">Reservation</a>	
@@ -109,13 +122,24 @@ a.link-to-book:hover {
 		<li class="nav-item">
 			<a class="nav-link text-dark" asp-area="" asp-page="/Index2">Contact</a>	
 		</li>
+		<li class="nav-item">
+			<a class="nav-link text-dark" asp-area="" asp-page="/Index7">View Menus</a>	
+		</li>
+		<li class="nav-item">
+			<a class="nav-link text-dark" 
+                                asp-area="ManageTable" asp-controller="Home" asp-action="Index">View Orders</a>
+		</li>
 			
 		
 			
 			<!-- DROPDOWN OPTIONS -->
 			 <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Manage</a>
-                            <div class="dropdown-menu">
+ <li class="nav-item dropdown">
+ <button type="button" class="btn btn-primary">Manage</button>
+  <button type="button" class="btn btn-prim dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only">Toggle Dropdown</span>
+	</button>                               
+	<div class="dropdown-menu">
                                 <a class="dropdown-item" 
                                    asp-area="RestaurantSite" asp-controller="Categories" asp-action="Index">Categories</a>
                                 <a class="dropdown-item"
@@ -190,450 +214,450 @@ a.link-to-book:hover {
 	<hr/>
 	<h1> Up to 20% off | Indian Veg Dishes </h1>
 	<div class="row">
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f22.png">
-        <img src="~/Images/f22.png" alt="Lights" style="width:100%">
-       <div class="link-to-book-wrapper">
-		   			<a class="link-to-book" class="btn btn-primary" > Chilly Potato &nbsp; | &nbsp; $300</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-				&nbsp; &nbsp;		<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f22.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Chilly Potato &nbsp; | &nbsp; $500</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
 
-		</div>
-      </a>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f6.jpg">
-        <img src="~/Images/f6.jpg" alt="Nature" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" > Dum Aloo Masala &nbsp; | &nbsp; $500</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-			&nbsp; &nbsp; <a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-		</div>
-      </a>
-    </div>
+
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images//f6.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Dum Aloo Masala &nbsp; | &nbsp; $500</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-   <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f8.jpg">
-        <img src="~/Images/f8.jpg" alt="Nature" style="width:100%">
-        <div class="link-to-book-wrapper">
-			<a class="link-to-book" class="btn btn-primary" > Paneer Masala &nbsp; | &nbsp; $300</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-					&nbsp; &nbsp; <a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
-	
-		</div>
-      </a>
-    </div>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f8.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Paneer Masala &nbsp; | &nbsp; $500</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
+</div>
+    
+  
   <hr/>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f37.jpg">
-        <img src="~/Images/f37.jpg" alt="Nature" style="width:100%">
-         <div class="link-to-book-wrapper">
-			  <a class="link-to-book" class="btn btn-primary" > Veg Pulao &nbsp; | &nbsp; $400</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp; <a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
-
-		</div>
-      </a>
-    </div>
+   <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f37.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Veg Phulav &nbsp; | &nbsp; $500</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f10.jpg">
-        <img src="~/Images/f5.jpg" alt="Nature" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" > Chole Bhature &nbsp; | &nbsp; $400</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
+</div>
+    
 
-		</div>
-      </a>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f11.jpg">
-        <img src="~/Images/f11.jpg" alt="Fjords" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" > Veg Meal &nbsp; | &nbsp; $800</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-							&nbsp; &nbsp; <a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-		</div>
-      </a>
-    </div>
+ <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f5.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Chole Bhature &nbsp; | &nbsp; $300</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
+</div>
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f11.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Veg meal &nbsp; | &nbsp; $1000</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
 </div>
 <hr/>
 <h1> Up to 20% off | Non-Veg Dishes </h1>
-	<div class="row">
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f14.jpg">
-        <img src="~/Images/f14.jpg" alt="Lights" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" > Chicken Masala &nbsp; | &nbsp; $400</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
-
-		</div>
-      </a>
-    </div>
+	
+  <div class="row">
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f14.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Chicken Masala &nbsp; | &nbsp; $500</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f16.jpg">
-        <img src="~/Images/f16.jpg" alt="Nature" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" > Prawns Masala &nbsp; | &nbsp; $500</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
+</div>
 
-		</div>
-      </a>
-    </div>
-  </div>
-   <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f15.png">
-        <img src="~/Images/f15.png" alt="Nature" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" > Paplet Fry &nbsp; | &nbsp; $800</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp; <a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-		</div>
-      </a>
-    </div>
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f16.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Prawns masala &nbsp; | &nbsp; $700</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/pap.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Chilly Paplet Fry &nbsp; | &nbsp; $900</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
   <hr/>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f17.jpg">
-        <img src="~/Images/f17.jpg" alt="Nature" style="width:100%">
-       <div class="link-to-book-wrapper">
-		   <a class="link-to-book" class="btn btn-primary" > Chicken Gravy &nbsp; | &nbsp; $400</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
-
-		</div>
-      </a>
-    </div>
+  
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/ch.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Chicken Biryani &nbsp; | &nbsp; $800</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f12.jpg">
-        <img src="~/Images/f12.jpg" alt="Nature" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" >Chicken Chilly  &nbsp; | &nbsp; $300</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
+</div>
 
-		</div>
-      </a>
-    </div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f17.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Chicken chilly &nbsp; | &nbsp; $300</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/food4.jpg">
-        <img src="~/Images/food4.jpg" alt="Fjords" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" > NonVeg Meal &nbsp; | &nbsp; $1000</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
+</div>
 
-		</div>
-      </a>
-    </div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/food4.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">NonVeg Meal &nbsp; | &nbsp; $1000</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
+</div>
+
 </div>
 <hr/>
 <h1> Up to 20% off | South Indian Dishes </h1>
 	<div class="row">
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f23.jpg">
-        <img src="~/Images/f23.jpg" alt="Lights" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" > Medu Vada &nbsp; | &nbsp; $150</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
-
-		</div>
-      </a>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f24.jpg">
-        <img src="~/Images/f24.jpg" alt="Nature" style="width:100%">
-        <div class="link-to-book-wrapper">
-			<a class="link-to-book" class="btn btn-primary" > Idli Sambhar &nbsp; | &nbsp; $100</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
-
-		</div>
-      </a>
-    </div>
-  </div>
-   <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f25.jpg">
-        <img src="~/Images/f25.jpg" alt="Nature" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" > Masala Dosa &nbsp; | &nbsp; $150</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
-
-		</div>
-      </a>
-    </div>
-  </div>
-  <hr/>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f26.jpg">
-        <img src="~/Images/f26.jpg" alt="Nature" style="width:100%">
-        <div class="link-to-book-wrapper">
-			<a class="link-to-book" class="btn btn-primary" > Appe &nbsp; | &nbsp; $100</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
-
-		</div>
-      </a>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f36.jpg">
-        <img src="~/Images/f36.jpg" alt="Nature" style="width:100%">
-         <div class="link-to-book-wrapper">
-			  <a class="link-to-book" class="btn btn-primary" > Upama &nbsp; | &nbsp; $200</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
-
-		</div>
-      </a>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f27.jpg">
-        <img src="~/Images/f27.jpg" alt="Fjords" style="width:100%">
-        <div class="link-to-book-wrapper">
-			<a class="link-to-book" class="btn btn-primary" > Meal &nbsp; | &nbsp; $500</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-					&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
-
-		</div>
-      </a>
-    </div>
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f23.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Medu Vada &nbsp; | &nbsp; $200</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f24.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Idlli Sambhar &nbsp; | &nbsp; $200</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f25.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Masala Dosa &nbsp; | &nbsp; $300</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+  <hr/>
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f26.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Appe &nbsp; | &nbsp; $150</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f36.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Upama &nbsp; | &nbsp; $200</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f27.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">South Meal &nbsp; | &nbsp; $800</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
 	<hr/>
 <h1> Up to 20% off | Chinese Dishes </h1>
 	<div class="row">
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f1.jpg">
-        <img src="~/Images/f1.jpg" alt="Lights" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" > Noodles &nbsp; | &nbsp; $200</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
-
-		</div>
-      </a>
-    </div>
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f1.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Noodles &nbsp; | &nbsp; $200</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f4.jpg">
-        <img src="~/Images/f4.jpg" alt="Nature" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" > Momos &nbsp; | &nbsp; $300</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
+</div>
 
-		</div>
-      </a>
-    </div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f4.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Momos &nbsp; | &nbsp; $300</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-   <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f7.jpg">
-        <img src="~/Images/f7.jpg" alt="Nature" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" > Fried Rice &nbsp; | &nbsp; $500</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
+</div>
 
-		</div>
-      </a>
-    </div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f7.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Fried Rice &nbsp; | &nbsp; $500</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
+</div>
+
   <hr/>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/food3">
-        <img src="~/Images/food3.jpg" alt="Nature" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" > Hakka Noodles &nbsp; | &nbsp; $300</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
-
-		</div>
-      </a>
-    </div>
+ <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/food3.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Hakka Noodles &nbsp; | &nbsp; $300</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f3.jpg">
-        <img src="~/Images/f3.jpg" alt="Nature" style="width:100%">
-         <div class="link-to-book-wrapper">
-			  <a class="link-to-book" class="btn btn-primary" > Gravy Manchurian  &nbsp; | &nbsp; $300</a>
-					   &nbsp; &nbsp;
-			
-			 <a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
+</div>
 
-		 </div>
-      </a>
-    </div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f3.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Gravy Manchurian &nbsp; | &nbsp; $200</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f21.jpg">
-        <img src="~/Images/f21.jpg" alt="Fjords" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" >Maggi &nbsp; | &nbsp; $100</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
-
-		</div>
-      </a>
-    </div>
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f21.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Maggi &nbsp; | &nbsp; $200</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
+</div>
+
 </div>
 <hr/>
 
 <h1> Up to 20% off | Fast Foods </h1>
 	<div class="row">
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f30.jpg">
-        <img src="~/Images/f30.jpg" alt="Lights" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" > Burger &nbsp; | &nbsp; $300</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
-
-		</div>
-      </a>
-    </div>
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f30.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Burger &nbsp; | &nbsp; $300</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f31.jpg">
-        <img src="~/Images/f31.jpg" alt="Nature" style="width:100%">
-        <div class="link-to-book-wrapper">
-			<a class="link-to-book" class="btn btn-primary" > French Fries &nbsp; | &nbsp; $150</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
+</div>
 
-		</div>
-      </a>
-    </div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f31.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">French Fries &nbsp; | &nbsp; $200</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-   <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f32.jpg">
-        <img src="~/Images/f32.jpg" alt="Nature" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" > Wrap Roll &nbsp; | &nbsp; $200</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
+</div>
 
-		</div>
-      </a>
-    </div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f32.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Wrap Roll &nbsp; | &nbsp; $300</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
+</div>
+
   <hr/>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f33.jpg">
-        <img src="~/Images/f33.jpg" alt="Nature" style="width:100%">
-        <div class="link-to-book-wrapper">
-			<a class="link-to-book" class="btn btn-primary" > Paneer Pizza &nbsp; | &nbsp; $300</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
-
-		</div>
-      </a>
-    </div>
+  <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f33.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Paneer Pizza &nbsp; | &nbsp; $500</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f34.jpg">
-        <img src="~/Images/f34.jpg" alt="Nature" style="width:100%">
-         <div class="link-to-book-wrapper">
-			 <a class="link-to-book" class="btn btn-primary" > Chicken Bucket &nbsp; | &nbsp; $600</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-						&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
+</div>
 
-		</div>
-      </a>
-    </div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f34.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Chicken Bucket &nbsp; | &nbsp; $800</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="~/Images/f35.jpg">
-        <img src="~/Images/f35.jpg" alt="Fjords" style="width:100%">
-        <div class="link-to-book-wrapper">
-			<a class="link-to-book" class="btn btn-primary" > Cheese Pizza &nbsp; | &nbsp; $400</a>
-					   &nbsp; &nbsp;
-			<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a>
-					&nbsp; &nbsp;	<a class="link-to-book" class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a>
+</div>
 
-		</div>
-      </a>
-    </div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <div class="card" style="width: 25rem;">
+  <img class="card-img-top" src="~/Images/f35.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Cheese Pizza &nbsp; | &nbsp; $600</h5>
+    <p>
+   <button type="button" class="btn btn-primary"> <a  class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Orders" asp-action="Create">Add to Orders</a> </button>
+   <br/> <br /> 
+   <button type="button" class="btn btn-primary"> <a class="btn btn-primary" asp-area="RestaurantSite" asp-controller="Payments" asp-action="Create">Checkout</a> </button>
+</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
+</div>
+
 </div>
 <hr/>
 	<div class="container">

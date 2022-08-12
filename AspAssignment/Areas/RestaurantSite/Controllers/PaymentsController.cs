@@ -58,7 +58,7 @@ namespace AspAssignment.Areas.RestaurantSite.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PaymentId,PaymentType,PaymentStatus,CustomerId")] Payment payment)
+        public async Task<IActionResult> Create([Bind("PaymentId,PaymentType,Price,PaymentStatus,CustomerId,IsEnabled")] Payment payment)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace AspAssignment.Areas.RestaurantSite.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PaymentId,PaymentType,PaymentStatus,CustomerId")] Payment payment)
+        public async Task<IActionResult> Edit(int id, [Bind("PaymentId,PaymentType,Price,PaymentStatus,CustomerId,IsEnabled")] Payment payment)
         {
             if (id != payment.PaymentId)
             {

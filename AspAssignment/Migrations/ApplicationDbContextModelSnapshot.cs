@@ -35,15 +35,28 @@ namespace AspAssignment.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
                     b.Property<short>("Quantity")
                         .HasColumnType("smallint");
 
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("AspAssignment.Models.CategoryDetail", b =>
+                {
+                    b.Property<short>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("smallint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("CategoryId");
+
+                    b.ToTable("CategoryDetails");
                 });
 
             modelBuilder.Entity("AspAssignment.Models.Customer", b =>
@@ -119,6 +132,9 @@ namespace AspAssignment.Migrations
                     b.Property<int>("DishId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsEnabled")
+                        .HasColumnType("bit");
+
                     b.Property<string>("OrderStatus")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
@@ -126,6 +142,11 @@ namespace AspAssignment.Migrations
 
                     b.Property<short>("Quantity")
                         .HasColumnType("smallint");
+
+                    b.Property<string>("TableName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.HasKey("OrderId");
 
@@ -148,6 +169,9 @@ namespace AspAssignment.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsEnabled")
+                        .HasColumnType("bit");
+
                     b.Property<string>("PaymentStatus")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
@@ -157,6 +181,9 @@ namespace AspAssignment.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
 
                     b.HasKey("PaymentId");
 

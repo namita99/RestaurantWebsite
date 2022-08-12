@@ -30,6 +30,8 @@ namespace AspAssignment.Models
         virtual public int Price { get; set; }
 
         [StringLength(120)]
+        [Display(Name = "Image of the Dish")]
+
         virtual public string ImageUrl { get; set; } = null;
 
 
@@ -37,11 +39,15 @@ namespace AspAssignment.Models
         [DefaultValue(1)]
          virtual public short Quantity { get; set; }
 
+
+
         #region Navigation Properties to the Order Model
 
         public ICollection<Order> Orders { get; set; }
 
 
         #endregion
+
+
     }
 }

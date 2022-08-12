@@ -31,7 +31,7 @@ namespace AspAssignment.Models
         [Required(ErrorMessage = "{0} cannot be Empty!")]
         [DefaultValue(1)]
         [Display(Name = "Customer Number")]
-      
+
         public int CustomerNo { get; set; }
 
 
@@ -44,7 +44,7 @@ namespace AspAssignment.Models
 
         public ICollection<Payment> Payments { get; set; }
 
-
+       
 
         #endregion
 

@@ -13,8 +13,10 @@ namespace AspAssignment.Data
 
         public DbSet<Order> Orders { get; set; }
 
-
         public DbSet<Payment> Payments { get; set; }
+
+        public DbSet<CategoryDetail> CategoryDetails { get; set; }
+
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

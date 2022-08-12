@@ -60,6 +60,7 @@
   font-family: Calibri, Helvetica, sans-serif;  
   background-color: pink;  
 }  
+
 .row-flex {
 	display: flex;
 	flex-direction: row;
@@ -100,11 +101,82 @@
 .contact-address p span {
 	display: block;
 }
+
+h1{
+  text-align: center;
+}
+.form-style {
+  margin:10px auto;
+  width: 400px;
+  padding: 20px 12px 10px 20px;
+  font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.form-style td {
+  padding: 0;
+  display: block;
+  list-style: none;
+  margin: 10px 0 0 0;
+}
+.form-style label{
+  margin:0 0 3px 0;
+  padding:0px;
+  display:block;
+  font-weight: bold;
+}
+.form-style .required{
+  color:red;
+}
+.form-style input[type=submit], .form-style input[type=reset]{
+  background: #4eb5f1;
+  padding: 8px 15px 8px 15px;
+  border: none;
+  color: #fff;
+}
+.form-style input[type=submit]:hover, .form-style input[type=reset]:hover{
+  background: #4eb5f1;
+  box-shadow:none;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+}
+.form-style .field-textarea{
+  height: 100px;
+}
+.form-style input[type=text], 
+.form-style input[type=email],
+textarea{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border:1px solid #BEBEBE;
+  padding: 7px;
+  margin:0px;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;  
+}
+.form-style .long{
+  width: 100%;
+}
+.form-style input[type=text]:focus, 
+.form-style input[type=email]:focus,
+.form-style textarea:focus{
+  -moz-box-shadow: 0 0 8px #88D5E9;
+  -webkit-box-shadow: 0 0 8px #88D5E9;
+  box-shadow: 0 0 8px #88D5E9;
+  border: 1px solid #88D5E9;
+}
+.error{
+  color: #D8000C;
+  background-color: #FFBABA;
+}
       </style>
       
 	<nav class="navbar navbar-expand navbar-dark bg-success">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="https://localhost:44343/RestaurantSite/Restaurant?">Desert Moon</a>
+		<a class="navbar-brand" asp-area="RestaurantSite" asp-controller="Restaurant">
+			<img src ="~/Images/logo.jpg" style="width:35px" /> Desert Moon</a>
 		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 			
 		<!-- NAVBAR LINKS -->
@@ -112,7 +184,7 @@
 <a class="nav-link text-dark" asp-area="" asp-page="/Index1">Home</a>		
 </li>
 		<li class="nav-item">
-			<a class="nav-link active" asp-area="" asp-page="/Index6">About Us</a>
+			<a class="nav-link text-dark" asp-area="" asp-page="/Index6">About Us</a>
 		</li>
 		<li class="nav-item">
 		<a class="nav-link text-dark" asp-area="" asp-page="/Index3">Reservation</a>	
@@ -120,13 +192,24 @@
 		<li class="nav-item">
 			<a class="nav-link text-dark" asp-area="" asp-page="/Index2">Contact</a>	
 		</li>
+        <li class="nav-item">
+			<a class="nav-link text-dark" asp-area="" asp-page="/Index7">View Menus</a>	
+		</li>
+		<li class="nav-item">
+			<a class="nav-link text-dark" 
+                                asp-area="ManageTable" asp-controller="Home" asp-action="Index">View Orders</a>
+		</li>
 			
 		
 			
 			<!-- DROPDOWN OPTIONS -->
 			 <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Manage</a>
-                            <div class="dropdown-menu">
+ <li class="nav-item dropdown">
+ <button type="button" class="btn btn-primary">Manage</button>
+  <button type="button" class="btn btn-prim dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only">Toggle Dropdown</span>
+	</button>    
+    <div class="dropdown-menu">
                                 <a class="dropdown-item" 
                                    asp-area="RestaurantSite" asp-controller="Categories" asp-action="Index">Categories</a>
                                 <a class="dropdown-item"
@@ -159,13 +242,13 @@
    </head>
  
    <body>
-      <h1>Contact form</h1>
+      <h1 style="color:darkmagenta">Contact Form</h1>
       <form name="myForm" asp-area="" asp-page="/Index4" onsubmit="return validateForm()" method="post">
          <table class="form-style">
             <tr>
                <td>
                   <label>
-                     Your name <span class="required">*</span>
+                     Your Name <span class="required">*</span>
                   </label>
                </td>
                <td>
@@ -176,7 +259,7 @@
             <tr>
                <td>
                   <label>
-                    Your email address <span class="required">*</span>
+                    Your Email Address <span class="required">*</span>
                   </label>
                </td>
                <td>

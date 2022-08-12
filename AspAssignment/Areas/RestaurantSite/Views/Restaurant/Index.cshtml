@@ -47,7 +47,7 @@
 
 .section-intro {
 	height: 820px;
-	background-image:url("food1.jpg");
+	background-image:url('/Images/res.jpg');
 	background-size: cover;
 	display: flex;
 	flex-direction: column;
@@ -213,14 +213,17 @@ a.link-to-book:hover {
 		font-size: 15px;
 		text-align: center;
 	}
-
+	
+}
 	
 
 </style>
 	
 	<nav class="navbar navbar-expand navbar-dark bg-success">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="https://localhost:44343/RestaurantSite/Restaurant?">Desert Moon</a>
+		<a class="navbar-brand" asp-area="RestaurantSite" asp-controller="Restaurant">
+			<img src ="~/Images/logo.jpg" style="width:35px" />
+			Desert Moon</a>
 		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 			
 		<!-- NAVBAR LINKS -->
@@ -228,7 +231,7 @@ a.link-to-book:hover {
 <a class="nav-link text-dark" asp-area="" asp-page="/Index1">Home</a>		
 </li>
 		<li class="nav-item">
-			<a class="nav-link active" asp-area="" asp-page="/Index6">About Us</a>
+			<a class="nav-link text-dark" asp-area="" asp-page="/Index6">About Us</a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link text-dark" asp-area="" asp-page="/Index3">Reservation</a>	
@@ -236,13 +239,23 @@ a.link-to-book:hover {
 		<li class="nav-item">
 			<a class="nav-link text-dark" asp-area="" asp-page="/Index2">Contact</a>	
 		</li>
+		<li class="nav-item">
+			<a class="nav-link text-dark" asp-area="" asp-page="/Index7">View Menus</a>	
+		</li>
+		<li class="nav-item">
+			<a class="nav-link text-dark" 
+                                asp-area="ManageTable" asp-controller="Home" asp-action="Index">View Orders</a>
+		</li>
 			
 		
 			
 			<!-- DROPDOWN OPTIONS -->
 			 <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Manage</a>
-                            <div class="dropdown-menu">
+ <button type="button" class="btn btn-primary">Manage</button>
+  <button type="button" class="btn btn-prim dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only">Toggle Dropdown</span>
+	</button>                           
+	<div class="dropdown-menu">
                                 <a class="dropdown-item" 
                                    asp-area="RestaurantSite" asp-controller="Categories" asp-action="Index">Categories</a>
                                 <a class="dropdown-item"
@@ -274,14 +287,14 @@ a.link-to-book:hover {
 	</nav>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-	<section class="">
+	<section class="section-intro">
 		<header>
 			<h1><center> Welcome To Desert Moon </center> </h1>
 		</header>
-					<img src="~/Images/res2.png" height="100%" width="100%"/>
+					
 
 		<div class="link-to-book-wrapper">
-			<a class="link-to-book" asp-area="" asp-page="/Index3">Book a table</a>
+			 <button type="button" class="btn btn-primary"> <a class="link-to-book" style="color:black" asp-area="" asp-page="/Index3">Book a table</a> </button>
 		</div>
 	</section>
 

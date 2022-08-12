@@ -24,11 +24,6 @@ namespace AspAssignment.Models
         [MaxLength(100, ErrorMessage = "{0} should have maximum {1} characters")]
         public string CategoryDescription { get; set; }
 
-        [Required(ErrorMessage = "{0} cannot be Empty!")]
-        [DefaultValue(1)]
-        [Display(Name = "Category Price")]
-        public int Price { get; set; }
-
 
         [Required]
         [DefaultValue(1)]

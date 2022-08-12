@@ -55,27 +55,18 @@ namespace AspAssignment.Areas.RestaurantSite.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CategoryId,CategoryName,CategoryDescription,Price,Quantity")] Category categoryInputModel)
+        public async Task<IActionResult> Create([Bind("CategoryId,CategoryName,CategoryDescription,Price,Quantity")] Category category)
         {
             if (ModelState.IsValid)
             {
-                bool isDuplicateFound
-                        = _context.Categories.Any(m => m.CategoryName == categoryInputModel.CategoryName
-                                       && m.CategoryId != categoryInputModel.CategoryId);
-                                        
-                if (isDuplicateFound)
-                {
-                    ModelState.AddModelError("CategoryName", "Duplicate! Another category with same name exists");
-                }
-                else
-                {
+                
                   
-                        _context.Add(categoryInputModel);
+                        _context.Add(category);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
-            }
-            return View(categoryInputModel);
+            
+            return View(category);
         }
 
         // GET: RestaurantSite/Categories/Edit/5

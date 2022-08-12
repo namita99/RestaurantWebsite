@@ -51,7 +51,7 @@ namespace AspAssignment.Areas.RestaurantSite.Controllers
         // GET: RestaurantSite/Orders/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryDescription");
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerName");
             ViewData["DishId"] = new SelectList(_context.Menus, "DishId", "DishName");
             return View();
@@ -62,7 +62,7 @@ namespace AspAssignment.Areas.RestaurantSite.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderId,OrderStatus,Quantity,CategoryId,DishId,CustomerId")] Order order)
+        public async Task<IActionResult> Create([Bind("OrderId,OrderStatus,Quantity,TableName,CategoryId,DishId,CustomerId,IsEnabled")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -70,7 +70,7 @@ namespace AspAssignment.Areas.RestaurantSite.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryDescription", order.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", order.CategoryId);
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerName", order.CustomerId);
             ViewData["DishId"] = new SelectList(_context.Menus, "DishId", "DishName", order.DishId);
             return View(order);
@@ -89,7 +89,7 @@ namespace AspAssignment.Areas.RestaurantSite.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryDescription", order.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", order.CategoryId);
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerName", order.CustomerId);
             ViewData["DishId"] = new SelectList(_context.Menus, "DishId", "DishName", order.DishId);
             return View(order);
@@ -100,7 +100,7 @@ namespace AspAssignment.Areas.RestaurantSite.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderId,OrderStatus,Quantity,CategoryId,DishId,CustomerId")] Order order)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderId,OrderStatus,Quantity,TableName,CategoryId,DishId,CustomerId,IsEnabled")] Order order)
         {
             if (id != order.OrderId)
             {
@@ -127,7 +127,7 @@ namespace AspAssignment.Areas.RestaurantSite.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryDescription", order.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", order.CategoryId);
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerName", order.CustomerId);
             ViewData["DishId"] = new SelectList(_context.Menus, "DishId", "DishName", order.DishId);
             return View(order);

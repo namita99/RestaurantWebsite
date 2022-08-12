@@ -6,6 +6,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20220809061038_RelatedMenu.cs" />
+    <Compile Remove="Migrations\20220809061038_RelatedMenu.Designer.cs" />
+    <Compile Remove="Migrations\20220810034523_Related.cs" />
+    <Compile Remove="Migrations\20220810034523_Related.Designer.cs" />
+    <Compile Remove="Migrations\20220810035433_Related.cs" />
+    <Compile Remove="Migrations\20220810035433_Related.Designer.cs" />
+    <Compile Remove="Migrations\20220810042444_RelatedOrderTables.cs" />
+    <Compile Remove="Migrations\20220810042444_RelatedOrderTables.Designer.cs" />
+    <Compile Remove="Migrations\20220810091627_Initials.cs" />
+    <Compile Remove="Migrations\20220810091627_Initials.Designer.cs" />
+    <Compile Remove="Migrations\20220810193137_RelatedPayment.cs" />
+    <Compile Remove="Migrations\20220810193137_RelatedPayment.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.26" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.27" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.25" />

@@ -19,6 +19,10 @@ namespace AspAssignment.Models
         [Display(Name = "Payment Type")]
         public string PaymentType { get; set; }
 
+        [Required(ErrorMessage = "{0} cannot be Empty!")]
+        [DefaultValue(1)]
+        [Display(Name = "Total Payment")]
+         public int Price { get; set; }
 
 
         [Required(ErrorMessage = "{0} cannot be Empty!")]
@@ -27,7 +31,16 @@ namespace AspAssignment.Models
         [Display(Name = "Payment Status")]
         public string PaymentStatus { get; set; }
 
+        [Required]
+        [DefaultValue(false)]
+        [Display(Name = "Payment Done")]
+
+        public bool IsEnabled { get; set; }
+
+
         #region Navigation Properties to the Category Model
+
+        [Display(Name = "Customer Name")]
 
         public int CustomerId { get; set; }
 
@@ -36,5 +49,7 @@ namespace AspAssignment.Models
         public Customer Customer { get; set; }
 
         #endregion
+
+      
     }
 }

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AspAssignment.Areas.RestaurantSite.ViewModels
 {
-    public class OrderViewModel:Order
+    public class OrderViewModel : Order
     {
         [Display(Name = "Order ID")]
         override public int OrderId
@@ -18,7 +18,7 @@ namespace AspAssignment.Areas.RestaurantSite.ViewModels
             }
         }
 
-        [Display(Name ="Order Status")]
+        [Display(Name = "Order Status")]
         [Required(ErrorMessage = "{0} cannot be Empty!")]
         [MinLength(3, ErrorMessage = "{0} should have at least {1} characters")]
         [MaxLength(100, ErrorMessage = "{0} should have maximum {1} characters")]
@@ -27,6 +27,17 @@ namespace AspAssignment.Areas.RestaurantSite.ViewModels
         {
             get => base.OrderStatus;
             set => base.OrderStatus = value;
+        }
+
+        [Display(Name = "Table Name")]
+        [Required(ErrorMessage = "{0} cannot be Empty!")]
+        [MinLength(3, ErrorMessage = "{0} should have at least {1} characters")]
+        [MaxLength(100, ErrorMessage = "{0} should have maximum {1} characters")]
+
+        override public string TableName
+        {
+            get => base.TableName;
+            set => base.TableName = value;
         }
 
         [Display(Name = "Quantity")]
@@ -74,6 +85,8 @@ namespace AspAssignment.Areas.RestaurantSite.ViewModels
                 base.CustomerId = value;
             }
         }
+
+
 
 
 

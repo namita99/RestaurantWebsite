@@ -61,7 +61,7 @@ namespace AspAssignment
 
                 endpoints.MapControllerRoute(
                 name: "areas",
-                pattern: "{area}/{controller}/{action=Index}/{id?}");
+                pattern: "{area}/{controller=Home}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
                     name: "default",
